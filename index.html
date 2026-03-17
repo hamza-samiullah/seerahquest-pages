@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeerahQuest - Journey Through Islamic History</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0D7C5F;
+            --primary-dark: #0A624B;
+            --primary-light: #15A37E;
+            --secondary: #FBBF24;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        nav {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-left: 30px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(13, 124, 95, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(13, 124, 95, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(13, 124, 95, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            transform: rotate(2deg);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            border-radius: 20px;
+            background-color: var(--bg-light);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+        }
+
+        /* Testimonials/Info */
+        .info-section {
+            padding: 80px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            padding: 60px;
+            border-radius: 32px;
+            color: white;
+            text-align: center;
+        }
+
+        .info-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .info-box p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 16px;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            padding-top: 40px;
+            border-top: 1px solid #F3F4F6;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 960px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 0;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .cta-group {
+                justify-content: center;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <div class="logo-dot"></div>
+                SeerahQuest
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="app-ads.txt">Ad-Ads</a>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero container">
+        <div class="hero-content">
+            <span class="hero-badge">Available Now on Android</span>
+            <h1>Journey Through <span>Islamic History</span></h1>
+            <p>SeerahQuest brings the life of Prophet Muhammad ﷺ to your screen with interactive episodes, quizzes, and historical insights.</p>
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">Download App</a>
+                <a href="#features" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="logo.png" alt="SeerahQuest App Preview">
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why SeerahQuest?</h2>
+                <p>An educational experience built for modern learners.</p>
+            </div>
+            <div class="grid">
+                <div class="feature-card">
+                    <div class="icon-box">📚</div>
+                    <h3>Interactive Episodes</h3>
+                    <p>30+ episodes covering the complete Seerah from birth to final years in an engaging format.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🧠</div>
+                    <h3>Smart Quizzes</h3>
+                    <p>Test your knowledge after each era with quizzes that adapt to your learning level.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🌍</div>
+                    <h3>Multilingual</h3>
+                    <p>Fully supports English and Urdu, making Islamic history accessible to a wider audience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section container">
+        <div class="info-box">
+            <h2>Authentic & Engaging</h2>
+            <p>Every piece of information is carefully researched to provide accurate historical accounts while maintaining a modern, user-friendly interface.</p>
+            <a href="privacy.html" class="btn btn-outline" style="border-color: white; color: white;">View Privacy Policy</a>
+        </div>
+    </section>
+
+    <footer class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-dot"></div>
+                    SeerahQuest
+                </div>
+                <p>Educating the next generation about the life and legacy of Prophet Muhammad ﷺ.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="https://github.com/hamza-samiullah/seerah_quest">Source Code</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Technical</h4>
+                <ul>
+                    <li><a href="app-ads.txt">app-ads.txt</a></li>
+                    <li><a href="GOOGLE_PLAY_UPLOAD_GUIDE.md">Upload Guide</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 SeerahQuest. Made with ❤️ for the Ummah.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "SeerahQuest",
+  "short_name": "SeerahQuest",
+  "description": "Journey through the life of Prophet Muhammad ﷺ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D7C5F",
+  "theme_color": "#0D7C5F",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    }
+  ]
+}
