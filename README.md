@@ -1,1 +1,0 @@
-# seerahquest-pages
